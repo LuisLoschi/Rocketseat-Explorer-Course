@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root {
+    /*colors*/
+    --primary-color: #B52184;
+    --secondary-color: #312D64;
+    --linear-gradient-color: linear-gradient(96deg, #343193 0%, #302C63 99.68%);
+
+    /*text*/
+    font-size: 62.5%;
+    --text-font: 'Mulish', sans-serif;
+    --text-color-white: #ffffff;
+
+}
+
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.container {
+    margin: 0 3rem 0 3rem;
+}
+
+/* ========== INTRO ============*/
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-img {
+    margin-bottom: 1.7rem;
+    animation: floating 6s infinite alternate;
+}
+
+@keyframes floating {
+    from {
+      transform: translateY(-40px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-title{
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    font-family: var(--text-font);
+}
+
+.intro-subtitle {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    font-family: var(--text-font);
+    font-weight: 600;
+    margin-bottom: 3.5rem;
+}
+
+.intro-button {
+    margin-bottom: 9.3rem;
+    animation: floating-button 2s infinite alternate;
+}
+
+@keyframes floating-button {
+    from {
+      transform: translateY(30px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+
+/* ========== ADVICES ============*/
+#advices {
+    background: var(--linear-gradient-color);
+    padding: 5rem 0 5rem 0;
+}
+
+.grid-advice {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.content-advice {
+    background-color: var(--text-color-white);
+    padding: 2.65rem;
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.advice-img {
+    animation: spin 20s  linear infinite;
+}
+
+@keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    } 
+}
+
+
+
+
+.title-advice {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+/* ========== FORM ============*/
+.form-title {
+    margin-top: 7.8rem;
+    margin-bottom: 4.3rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+#name, #email {
+    margin-bottom: 2.4rem;
+    border-radius: 1.6rem;
+    padding: 1.6rem 3.5rem;
+    border: 1.5px solid var(--secondary-color);
+}
+
+#name {
+    background: url(./img/person-icon.svg) no-repeat .5rem;
+}
+
+#email {
+    background: url(./img/at-icon.svg) no-repeat .5rem;
+}
+
+textarea {
+    margin-bottom: 2.4rem;
+    border-radius: 1.6rem;
+    padding: 1.6rem;
+    border: 1.5px solid var(--secondary-color);
+}
+
+.button {
+    color: var(--text-color-white);
+    background-color: var(--secondary-color);
+    font-family: var(--text-font);
+    font-weight: 700;
+    cursor: pointer;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem;
+    border-radius: 1.6rem;
+    width: 16rem;
+    border: none;
+
+    margin-bottom: 6.5rem;
+}
+
+.button:hover {
+    background-color: var(--primary-color);
+    transition: all .5s;
+}
+
+.form-right {
+    display: none;
+}
+
+/* ========== FOOTER ============*/
+#footer {
+    background: var(--linear-gradient-color);
+    padding: 5rem 0 5rem 0;
+}
+
+.content-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-subtitle {
+    color: var(--text-color-white);
+    font-size: 1.4rem;
+    font-family: var(--text-font);
+}
+
+.footer-subtitle a {
+    color: var(--text-color-white);
+    text-decoration: underline;
+}
+
+
+/* ========== 1000px ============*/
+@media (min-width: 1300px) {
+    .container {
+        margin: 0 10rem 0 10rem;
+    }
+
+    /* ========== INTRO ============*/
+    .intro-content {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        margin-bottom: 10rem;
+    }
+
+    .intro-img {
+        width: 50rem;
+    }
+
+    .text-content {
+        align-items: flex-start;
+        margin-top: auto;
+    }
+
+    .intro-title {
+        font-size: 5rem;
+    }
+
+    .intro-subtitle {
+        font-size: 2.5rem;
+    }
+
+    .intro-button {
+        margin-top: 12rem;
+        margin-bottom: auto;
+    }
+
+    .intro-button img {
+       width: 5rem;  
+       margin-bottom: 4rem;
+    }
+
+    /* ========== ADVICES ============*/
+    .grid-advice {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    .title-advice {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro-subtitle {
+        font-size: 1.9rem;
+    }
+
+
+    /* ========== FORM ============*/
+    .container-2 {
+        margin: 0 0 0 10rem;
+    }
+
+    .content-form {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-right {
+        display: flex;
+    }
+
+    .form-right img {
+        width: 70rem;
+    }
+
+    .form-left {
+        width: 40%;
+    }
+}
