@@ -102,7 +102,7 @@ Each folder contains projects that were developed throughout the course with dif
 <br>
 
 
-## Technologies 🚀
+## 🚀 Technologies 
 
 <div align="center">
 
@@ -122,7 +122,7 @@ Each folder contains projects that were developed throughout the course with dif
 
 <div align="center">
 
-## Contact with me  🤝
+## 🤝 Contact with me  
 
   <br>
 
