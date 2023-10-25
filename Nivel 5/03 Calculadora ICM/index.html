@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calculadora IMC</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;700&family=Mulish:wght@600;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+         <!-- ERRO -->
+         <div class="alert-error ">
+            Digite somente números válidos
+         </div>
+
+        <div class="container">
+            <!-- CALCULO -->
+            <div class="card">
+                <form>
+                    <h1 class="title">Cálculo de IMC</h1>
+                    <div class="input-wrapper">
+                        <label for="weight">Peso (Kg)</label>
+                        <input 
+                            id="weight" 
+                            type="text"
+                            placeholder="60">
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="height">Altura (cm)</label>
+                        <input 
+                            id="height" 
+                            type="number"
+                            placeholder="165">
+
+                        <button id="btn" type="submit">
+                            Calcular IMC
+                            <img src="./img/arrow.svg" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <!--END CALCULO -->
+
+            <!-- POPUP -->
+            <div class="modal-wrapper ">
+                <div class="modal card">
+                    <h2 class="title">
+                        <span>Seu IMC é de 28</span>
+
+                        <button class="close">
+                            <img src="./img/close.svg" alt="imagem para fechar popup" >
+                        </button>
+                    </h2> 
+                </div>
+            </div> 
+            <!--END POPUP -->
+
+        </div>
+    </main>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

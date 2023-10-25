@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-size: 62.5%;
+    --font-title: 'Montserrat', sans-serif;
+    --font-text: 'Open Sans', sans-serif;
+
+    --color-title: #34355B;
+    --color-text: #FFFFFF;
+    --color-input: #DCE2E9;
+
+    --color-button: #02799D;
+    --color-button-hover: #23a5cc;
+
+    --color-gradient-1: #040924;
+    --color-gradient-2: #31a7f7;
+
+    --color-black: #000;
+    --color-outline: #02799D;
+    
+    --bg-error: #F03E3E;
+}
+
+body {
+    background: linear-gradient(287.56deg, var(--color-gradient-1) 0%, var(--color-gradient-2) 100%);
+    animation: gradient 5s ease infinite;
+    background-size: 200% 200%;
+    
+    font-size: 1.6rem;    
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0 auto;
+    margin-top: -2rem;
+    width: min(42rem, 90%);
+}
+
+.card {
+    background: white;
+    box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.6);
+    border-radius: .6rem;
+    padding: 4.8rem 6.4rem 6.4rem;
+
+    font-family: var(--font-text);
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    background-color: var(--color-button);
+    color: white;
+    font-weight: bold;
+
+    border-radius: .4rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background-color: var(--color-button-hover);
+}
+
+/*====================== ERROR MSG ====================*/
+.alert-error {
+    background-color: var(--bg-error);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    padding: .8rem 0;
+
+    color: var(--color-text);
+
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-text);
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: translateY(-30px);
+    transition: transform .5s;
+}
+
+.alert-error.open {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/*====================== Screnn 1 ====================*/
+.title {
+    font-family: var(--font-title);
+    font-size: 3.2rem;
+
+    margin-bottom: 3.2rem;
+
+    color: var(--color-title);
+
+    text-align: center;
+}
+
+form label {
+    color: var(--color-title);
+    font-size: 1.4rem;
+
+    display: block;
+    margin-bottom: .8rem;
+}
+
+form input {
+    background-color: var(--color-input);
+    border-radius: .4rem;
+}
+
+input:focus {
+    outline: 2px solid var(--color-outline);
+}
+
+.input-wrapper + .input-wrapper {
+    margin-top: 1.6rem;
+}
+
+input, #btn {
+    width: 100%;
+    border: none;
+    padding: 1.6rem;
+}
+
+#btn {
+    margin-top: 3.2rem;
+}
+
+
+/*====================== POPUP ====================*/
+.modal-wrapper {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-wrapper.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.modal button:hover {
+    transform: scale(1.1);
+}
