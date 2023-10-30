@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 194;
+    --bg-color: hsl(var(--hue), 5%, 7%);
+    --text-color:  hsl(var(--hue), 40%, 98%);
+    --primary-color: hsl(var(--hue), 40%, 98%);
+
+    --bg-card: hsl(var(--hue), 9%, 89%);
+    --bg-card-cloud: hsl(194, 97%, 31%);
+    --bg-card-tree: hsl(120, 95%, 25%);
+    --bg-card-coffee: hsl(29, 97%, 31%);
+    --bg-card-fire: hsl(8, 95%, 47%);
+
+    font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html.light {
+    --text-color: hsl(var(--hue), 5%, 7%); /* black */
+    --bg-color:  hsl(var(--hue), 40%, 98%); /* white */
+    --primary-color: hsl(var(--hue), 100%, 0%); /* black */
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+    display: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    display: grid;
+    height: 100vh;
+    place-items: center;
+}
+
+/* accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    color: var(--primary-color);
+
+    cursor: pointer;
+
+    font-size: 6.4rem;
+}
+
+#toggle-mode {
+    position: absolute;
+    right: 2.6rem;
+    top: 2.6rem;
+    font-size: 3.2rem;
+
+    line-height: 0;
+
+    color: var(--text-color);
+}
+
+/* UNITARY */
+.flex {
+    display: flex;
+}
+
+/* APP */
+#app {
+    display: grid;
+    justify-items: center;
+}
+
+.division-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer {
+    font-size: 9.6rem;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#controls {
+    margin-top: 1.6rem;
+    padding: 2.2rem 4rem;
+    gap: 1.6rem;
+
+}
+
+/* RUNNING CONTROLS */
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+    display: none;
+}
+
+
+/* CARDS */
+.division-2 {
+    padding: 2rem;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+.card-sound {
+    background-color: var(--bg-card);
+    padding: 4rem;
+    border-radius: 1rem;
+    width: 13rem;
+    height: 15rem;
+}
+
+.card-sound.tree.active {
+    background-color: var(--bg-card-tree);   
+}
+
+.card-sound.tree.active svg {
+    fill: #ffffff;
+}
+
+.card-sound.cloud.active {
+    background-color: var(--bg-card-cloud);
+}
+
+.card-sound.cloud.active svg{
+    fill: #ffffff;
+}
+
+.card-sound.coffee.active {
+    background-color: var(--bg-card-coffee);
+}
+
+.card-sound.coffee.active svg{
+    fill: #ffffff;
+}
+
+.card-sound.fire.active {
+    background-color: var(--bg-card-fire);
+}
+
+.card-sound.fire.active svg{
+    fill: #ffffff;
+}
+
+svg {
+    fill: #111213;
+}
+
+
+@media only screen and (max-width: 750px) {
+  #app-division {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .division-1 {
+    margin-top: 3rem;
+  }
+
+  #cards {
+    justify-content: center;
+  }
+
+  svg {
+    width: 100%;
+  }
+}
