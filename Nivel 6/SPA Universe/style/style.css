@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root {
+    /* color */
+    --text-color-white: #FFFFFF;
+    --text-color-gray: #C4C4CC;
+    --text-color-blue: #02799D;
+    --text-color-text: #E1E1E6;
+
+    /* font */
+    font-size: 62.5%;
+    --text-title: 'Roboto';
+}
+
+body, html {
+    width:100%;
+    height:100%;
+}
+
+.button {
+    padding: 1.2rem 3.2rem;
+    border-radius: .5rem;
+    border: 2px solid var(--text-color-white);
+
+    color: var(--text-color-white);
+    background-color: transparent;
+
+    font-family: var(--text-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: inline-flex;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+.button:hover {
+    background-color: var(--text-color-white);
+    color: var(--text-color-blue);
+}
+
+.button svg {
+    margin-left: 1rem
+}
+
+.button:hover svg  {
+    fill: var(--text-color-blue);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    height: 12.2rem;
+    gap: 5rem;
+    padding: 4rem;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    font-family: var(--text-title);
+}
+
+nav a {
+    color: var(--text-color-gray);
+    padding-bottom: 1.1rem;
+}
+
+nav a:hover {
+    color: var(--text-color-white);
+    border-bottom: 2px solid var(--text-color-white);
+
+    transition: .1s;
+}
+
+.galaxy-icon {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg)}
+    100% { transform: rotate(360deg)}
+}
+
+@keyframes moveToRight {
+    0% {
+    transform: translateX(-50px);
+    }
+    100% {
+    transform: translateX(0px);
+    }
+}

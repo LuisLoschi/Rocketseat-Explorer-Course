@@ -1,0 +1,45 @@
+@import url(../style/style.css);
+
+body {
+    background-image: url(../assets/bg-exploration.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+
+    animation: moveToRight 2s;
+}
+
+nav a:nth-child(4) {
+    color: var(--text-color-white);
+
+    border-bottom: 2px solid var(--text-color-white);
+}
+
+.exploration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 6rem 10rem;
+    
+}
+
+.exploration-title {
+    color: var(--text-color-white);
+
+    font-size: 4.8rem;
+    font-family: var(--text-title);
+
+    margin-bottom: 2.4rem;
+}
+
+.exploration-text {
+    font-family: var(--text-title);
+    font-size: 1.8rem;
+    font-weight: 100;
+
+    color: var(--text-color-text);
+    
+    width: 60%;
+    margin-bottom: 2.4rem;
+}
