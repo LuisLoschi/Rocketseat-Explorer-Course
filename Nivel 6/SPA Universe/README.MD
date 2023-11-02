@@ -11,9 +11,7 @@
 ## 🔖 Layout
 
 <div align="center">
-    <video autoplay  loop controls>
-        <source src="./assets/video.mp4" type="video/mp4">
-    </video>
+    <img src="./assets/gif.gif" width=600>
     <h3><a href="https://www.figma.com/file/agAVqdF2YCUXICsP5tEcI1/Desafios-Explorer-SPA-Universe-Copy?fuid=927727099576126461">Click to access the project</a></h3> 
 </div>
 
