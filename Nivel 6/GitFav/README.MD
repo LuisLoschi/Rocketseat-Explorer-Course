@@ -11,15 +11,13 @@
 ## 🔖 Layout
 
 <div align="center">
-    <video width="600"  controls>
-        <source src="./img/video.mp4" type="video/mp4">
-    </video>
+    <img src="./img/gitfav_img.png" >
 </div>
 
 <br>
 
 ## 💻 Project
-The GitFav project allows you to save your favorite github users!
+The GitFav project allows you to add and save your favorite github users!
 
 ### 💡 Features:
 - SPA concepts (single-page application)
