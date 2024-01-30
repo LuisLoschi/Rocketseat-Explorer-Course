@@ -1,5 +1,5 @@
 <h1 align="center">
-    SPA UNIVERSE 🌌
+    GITFAV ✨
 </h1>
 
 <p align="center">
@@ -11,21 +11,22 @@
 ## 🔖 Layout
 
 <div align="center">
-    <img src="./assets/gif.gif" width=600>
-    <h3><a href="https://www.figma.com/file/agAVqdF2YCUXICsP5tEcI1/Desafios-Explorer-SPA-Universe-Copy?fuid=927727099576126461">Click to access the project</a></h3> 
+    <video width="600"  controls>
+        <source src="./img/video.mp4" type="video/mp4">
+    </video>
 </div>
 
 <br>
 
 ## 💻 Project
-The SPA Universe project can be used to learn more about our universe!
+The GitFav project allows you to save your favorite github users!
 
 ### 💡 Features:
 - SPA concepts (single-page application)
-- Route mapping
 - Async and promises
 - Object orientation (OOP)
 - Classes
+- Github API
 - Node server
 
 ## 🚀 Technologies

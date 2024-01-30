@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root {
+    font-size: 62.5%;
+    --font-primary: 'Poppins', sans-serif;
+
+    --text-color: #303030;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 63%);
+    --bg-color:  #f4f7fa;
+    --border-color: #cccccc;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============== APP ============== */
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 2.5rem 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search #input-search {
+    height: 3.2rem;
+    padding: 0 .8rem;
+
+    border-radius: .4rem 0 0 .4rem;
+    border: 1px solid var(--border-color);
+}
+
+.search button {
+    background-color: var(--primary-color);
+    border: none;
+
+    height: 3.2rem;
+    padding: 0 1rem;
+    border-radius: 0 .4rem .4rem 0;
+
+    border: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    filter: brightness(1.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+}
+
+table th {
+    background: var(--primary-color);
+    text-align: left;
+    font-weight: normal;
+    padding: 1.5rem;
+}
+
+table th:first-child {
+    border-top-left-radius: .4rem;
+}
+
+table th:last-child {
+    border-top-right-radius: .4rem;
+}
+
+table tr:nth-child(odd) {
+    background: #ddd;
+}
+
+table tr {
+    background: #eee;
+}
+
+table td {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+td.user img {
+    width: 5rem;
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user a p {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+td.user a span {
+    color: var(--text-color);
+}
+
+td .remove {
+    background: none;
+    border: none;
+
+    color: red;
+
+    cursor: pointer;
+}
