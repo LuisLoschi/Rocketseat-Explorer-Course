@@ -1,0 +1,333 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+:root {
+    font-size: 62.5%;
+    --font-primary: 'Poppins', sans-serif;
+
+    --text-color-bg-black: #303030;
+    --text-color-bg-white: #E1E1E6;
+    --text-color-white: #FFF;
+    --text-color-red: #F75A68;
+    --text-color-empty: #4E5455;
+
+    /* theme white */
+    --bg-color:  #fff;
+    --button-color-hover: var(--text-color-bg-black);
+    --bg-color-input: #c8d6da;
+    --button-color: #fff; 
+    --table-tr-color-primary: #748f97;
+    
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 63%);
+    --bg-color:  #000;
+    --bg-color-input: #06181C;
+    --border-color: #cccccc;
+
+    --table-th-color: #092D38;
+    --table-tr-color-primary: #06161B80;
+    --table-tr-color-secondary: #06181C;
+    --table-border-color: #4A808C;
+    --table-scroll: #4A808C;
+
+    --button-color: #065E7C;
+    --button-color-hover: var(--text-color-white);
+    
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============== APP ============== */
+#app {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 2.5rem 0 8.7rem 0;
+}
+
+header h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search #input-search {
+    height: 4.8rem;
+    width: 40rem;
+    padding: 0 2rem;
+    margin-right: .8rem;
+
+    border-radius: .5rem;
+    border: none;
+    background: var(--bg-color-input);
+
+    color: var(--text-color-white);
+}
+
+.search button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--button-color);
+    border: none;
+
+    height: 4.8rem;
+    padding: 1.4rem 3.2rem;
+    gap: 1rem;
+    border-radius: .5rem;
+
+    border: none;
+    cursor: pointer;
+
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    color: var(--text-color-white);
+
+    transition: .3s;
+}
+
+.search button svg {
+    fill: var(--text-color-white);
+    transition: .3s;
+}
+
+.search button:hover {
+    background-color: var(--button-color-hover);
+    color: var(--button-color);
+}
+
+.search button:hover svg {
+    fill: var(--button-color);
+}
+
+.table {
+    border: 1px solid var(--table-border-color);
+    border-top-right-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
+
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 600px;
+
+    overflow-y: auto;
+}
+
+.table {
+    border: 1px solid var(--table-border-color);
+    border-bottom: none;
+    border-top-right-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
+}
+
+.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 500px;
+    padding: 3rem;
+
+    border: 1px solid var(--table-border-color);
+    border-top: none;
+
+    border-bottom-right-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
+
+    background-color: var(--table-tr-color-primary);
+
+}
+
+.empty img {
+    width: 13.2rem;
+    margin-right: 6rem;
+}
+
+.empty p {
+    color: var(--text-color-empty);
+    font-size: 4.8rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+}
+
+
+
+.table::-webkit-scrollbar {
+    width: 0px;               /* width of the entire scrollbar */
+    height: 0px;
+}
+
+
+.table::-webkit-scrollbar-thumb {
+    /* border-radius: 0px;       roundness of the scroll thumb */
+    /* border: 0px solid var(--table-scroll);  creates padding around scroll thumb */
+    height: 90%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+    
+}
+
+table th {
+    background: var(--table-th-color);
+    color: var(--text-color-bg-white);
+    text-align: left;
+    font-weight: 700;
+    padding: 1.5rem 4rem;
+}
+
+table th:first-child {
+    border-top-left-radius: 1.2rem;
+}
+
+table th:last-child {
+    border-top-right-radius: 1.2rem;
+}
+
+table tr:last-child {
+    border-bottom-right-radius: 1.2rem;
+    border-bottom-left-radius: 1.2rem;
+    border-bottom: 1px solid var(--table-border-color);
+}
+
+table tr:nth-child(odd) {
+    background: var(--table-tr-color-primary);
+}
+
+table tr:nth-child(even) {
+    background: var(--table-tr-color-secondary);
+}
+
+table td {
+    padding: 1.5rem 4rem;
+    text-align: left;
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+td.user img {
+    width: 5rem;
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user a p {
+    font-weight: bold;
+    color: var(--text-color-bg-white);
+}
+
+td.user a span,
+td.repositories,
+td.followers {
+    color: var(--text-color-bg-white);
+}
+
+td .remove {
+    background: none;
+    border: none;
+
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--text-color-red);
+
+    cursor: pointer;
+}
+
+td .remove:hover {
+    filter: brightness(1.2);
+    
+    transition: .2s;
+}
+
+
+@media only screen and (max-width: 850px) {
+    #app {
+        max-width: 420px;
+    }
+
+    header {
+        display: block;
+        align-items: center;
+        justify-content: space-between;        
+    }
+
+    header img {
+        margin-bottom: 3rem;
+    }
+
+    .empty p {
+        font-size: 2.4rem;
+    }
+
+    .table {
+        overflow-x: auto;
+    }
+
+    table th {
+        font-size: 1.2rem;
+        padding: 1.5rem 1rem;
+    }
+
+    table td {
+        padding: 1rem 1rem;
+        text-align: center;
+    }
+
+    td.user img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    td p,
+    td span {
+        font-size: 1.2rem;
+    }
+
+    
+}
+
