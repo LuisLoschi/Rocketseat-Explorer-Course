@@ -40,7 +40,16 @@ export const Brand = styled.div`
 
 
 export const Menu = styled.ul`
-    
+    grid-area: menu;
+
+    text-align: center;
+    padding-top: 64px;
+
+    background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+
+    > li {
+        margin-bottom: 24px;
+    }
 
 `;
 export const Search = styled.div`
