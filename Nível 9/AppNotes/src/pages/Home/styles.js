@@ -52,6 +52,8 @@ export const Menu = styled.ul`
     }
 
 `;
+
+
 export const Search = styled.div`
     grid-area: search;
 
@@ -61,17 +63,23 @@ export const Search = styled.div`
 
 
 export const Content = styled.div`
+    grid-area: content;
 
+    padding: 0 64px;
+    overflow-y: auto;
 
 `;
 
 
 export const NewNote = styled.button`
-    grid-area: newnote;
-
-    padding: 64px 64px 0;
-
+    grid-area: newnote; 
     
+    background-color: ${({theme}) => theme.COLORS.MAIN_COLOR};
+    border: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
         margin-right: 8px;
