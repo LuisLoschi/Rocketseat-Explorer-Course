@@ -4,7 +4,7 @@ export function ButtonText({ title, isactive = false, ...rest }) {
     return (
         <Container 
             type='button'
-            $isactive={isactive.toString()}
+            $isactive={isactive.toString()} //letra minuscula!!!
             {...rest}
         >
             {title}
