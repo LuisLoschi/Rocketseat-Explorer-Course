@@ -31,7 +31,7 @@ export function Profile() {
                         />
                     </label>
                 </Avatar>
-                
+
                 <Input 
                     placeholder="Nome"  
                     type="text" 
@@ -58,10 +58,7 @@ export function Profile() {
 
                 <Button title="Salvar" />
 
-
             </Form>
-
         </Container>
-
     )
 }
