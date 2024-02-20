@@ -4,15 +4,16 @@ import { Button } from "../../components/Button";
 
 import { FiLock, FiMail, FiUser, FiArrowLeft, FiCamera } from "react-icons/fi";
 
+import { Link } from "react-router-dom";
 
 export function Profile() {
 
     return (
         <Container>
             <header>
-                <a href="/">
+                <Link to="/">
                     <FiArrowLeft />
-                </a>
+                </Link>
             </header>
             
             <Form >
