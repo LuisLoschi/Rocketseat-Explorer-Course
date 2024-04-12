@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
             localStorage.setItem("@appNotes:user", JSON.stringify(user)); //Armazena os dados no navegador
             localStorage.setItem("@appNotes:token", token);
 
-            api.defaults.headers.authorization = `Bearer ${token}`; //Passa token tipo Bearer para as requisições
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`; //Passa token tipo Bearer para as requisições
             setData({ user, token });
         
         } catch (error) {
@@ -43,7 +43,7 @@ function AuthProvider({ children }) {
         const user = localStorage.getItem("@appNotes:user");
 
         if(token && user) {
-            api.defaults.headers.authorization = `Bearer ${token}`
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
             setData({
                 token,
