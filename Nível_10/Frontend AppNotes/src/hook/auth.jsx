@@ -35,10 +35,19 @@ function AuthProvider({ children }) {
         setData({});
     }
 
-    async function updateProfile({ user }) {
+    async function updateProfile({ user, avatarFile }) {
         try {
-            //Tenta substituir os dados do perfil
+            
+            //Trocar foto perfil
+            if(avatarFile) {
+                const fileUploadForm = new FormData();
+                fileUploadForm.append("avatar", avatarFile);
 
+                const response = await api.patch("/users/avatar", fileUploadForm);
+                user.avatar = response.data.avatar;
+            }
+            
+            //Tenta substituir os dados do perfil
             await api.put("/users", user);
             localStorage.setItem("@appNotes:user", JSON.stringify(user));
 
