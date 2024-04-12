@@ -28,12 +28,19 @@ function AuthProvider({ children }) {
         }
     }
 
+    function signOut() {
+        localStorage.removeItem("@appNotes:token");
+        localStorage.removeItem("@appNotes:user");
+
+        setData({});
+    }
+
     useEffect(() => {
         /*
-        Guarda informações de login para não voltar a página inicial ao recarregar a página
+        Carrega e guarda informações de login para não voltar a página inicial ao recarregar a página
         */
         const token = localStorage.getItem("@appNotes:token");
-        const user = localStorage.getItem("@appNotes:user")
+        const user = localStorage.getItem("@appNotes:user");
 
         if(token && user) {
             api.defaults.headers.authorization = `Bearer ${token}`
@@ -47,7 +54,12 @@ function AuthProvider({ children }) {
 
 
     return(
-        <AuthContext.Provider value={{ signIn, user: data.user }}>
+        <AuthContext.Provider value={{ 
+                signIn,
+                user: data.user,
+                signOut 
+            }}
+            >
             {children}
         </AuthContext.Provider>
     )
