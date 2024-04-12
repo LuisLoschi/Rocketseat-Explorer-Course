@@ -29,8 +29,20 @@ function AuthProvider({ children }) {
     }
 
     useEffect(() => {
+        /*
+        Guarda informações de login para não voltar a página inicial ao recarregar a página
+        */
         const token = localStorage.getItem("@appNotes:token");
         const user = localStorage.getItem("@appNotes:user")
+
+        if(token && user) {
+            api.defaults.headers.authorization = `Bearer ${token}`
+
+            setData({
+                token,
+                user: JSON.parse(user)
+            });
+        }
     }, []);
 
 
