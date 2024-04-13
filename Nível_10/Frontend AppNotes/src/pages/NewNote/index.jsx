@@ -9,13 +9,21 @@ import { NoteItem } from "../../components/NoteItem";
 import { Link } from "react-router-dom";
 
 import { useState } from "react";
+import { api } from "../../services/api";
 
+import { useNavigate } from 'react-router-dom'
+ 
 export function NewNote() {
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+
     const [links, setLinks] = useState([]);      //Guarda os links
     const [newLink, setNewLink] = useState("");  //Armazena novo link
 
     const[tags, setTags] = useState([]);
     const[newTag, setNewTag] = useState("");
+
+    const navigate = useNavigate();
 
     function handleAddLink() {
         /*
@@ -38,6 +46,20 @@ export function NewNote() {
         setTags(previewState => previewState.filter(tag => tag !== deleted));
     }
 
+    async function handleNewNote() {
+        await api.post("/notes", {
+            title,
+            description,
+            tags,
+            links
+        });
+
+        alert("Nota criada com sucesso!");
+
+        navigate("/")
+    }
+
+
     return (
         <Container>
             <Header />
@@ -49,16 +71,23 @@ export function NewNote() {
                         <Link to="/">Voltar</Link>
                     </header>
 
-                    <Input placeholder="Título" />
+                    <Input 
+                        placeholder="Título" 
+                        onChange={e => setTitle(e.target.value)}
 
-                    <TextArea placeholder="Obsevações" />
+                    />
+
+                    <TextArea 
+                        placeholder="Obsevações"
+                        onChange={e => setDescription(e.target.value)}
+                    />
 
                     <Section title="Links úteis">
                         {
                             links.map((link, index) => (
                                 <NoteItem  
                                     key={String(index)}
-                        S            value={link}
+                                    value={link}
                                     onClick={() => handleRemoveLink(link)}
                                 />  
                             ))
@@ -95,7 +124,10 @@ export function NewNote() {
                         </div>
                     </Section>
                     
-                    <Button title="Salvar" />
+                    <Button 
+                        title="Salvar" 
+                        onClick={handleNewNote}
+                    />
                 </Form>
             </main>
 
