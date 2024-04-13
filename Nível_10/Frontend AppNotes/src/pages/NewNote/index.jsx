@@ -34,6 +34,10 @@ export function NewNote() {
         setNewTag("");
     }
 
+    function handleRemoveTag(deleted) {
+        setTags(previewState => previewState.filter(tag => tag !== deleted));
+    }
+
     return (
         <Container>
             <Header />
@@ -54,7 +58,7 @@ export function NewNote() {
                             links.map((link, index) => (
                                 <NoteItem  
                                     key={String(index)}
-                                    value={link}
+                        S            value={link}
                                     onClick={() => handleRemoveLink(link)}
                                 />  
                             ))
@@ -77,7 +81,7 @@ export function NewNote() {
                                     <NoteItem  
                                         key={String(index)}
                                         value={tag}
-                                        onClick={() => {}}
+                                        onClick={() => handleRemoveTag(tag)}
                                     />
                                 ))
                             }
