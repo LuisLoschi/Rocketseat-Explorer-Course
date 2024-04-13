@@ -14,6 +14,9 @@ export function NewNote() {
     const [links, setLinks] = useState([]);      //Guarda os links
     const [newLink, setNewLink] = useState("");  //Armazena novo link
 
+    const[tags, setTags] = useState([]);
+    const[newTag, setNewTag] = useState("");
+
     function handleAddLink() {
         /*
         * Manter links anteriores a adicionar os novos
@@ -24,6 +27,11 @@ export function NewNote() {
 
     function handleRemoveLink(deleted) {
         setLinks(previewState => previewState.filter(link => link !== deleted));
+    }
+
+    function handleAddTag() {
+        setTags(previewState => [...previewState, newTag]);
+        setNewTag("");
     }
 
     return (
@@ -64,8 +72,22 @@ export function NewNote() {
 
                     <Section title="Marcadores">
                         <div className="tags">
-                            <NoteItem  value="react"/>
-                            <NoteItem  isnew placeholder="Nova tag" />
+                            {
+                                tags.map((tag, index) => (
+                                    <NoteItem  
+                                        key={String(index)}
+                                        value={tag}
+                                        onClick={() => {}}
+                                    />
+                                ))
+                            }
+                            <NoteItem  
+                                isnew 
+                                placeholder="Nova tag" 
+                                value={newTag}
+                                onChange={e => setNewTag(e.target.value)}
+                                onClick={handleAddTag}
+                            />
                         </div>
                     </Section>
                     
