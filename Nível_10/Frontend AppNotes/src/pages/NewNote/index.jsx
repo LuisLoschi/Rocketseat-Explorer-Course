@@ -22,6 +22,10 @@ export function NewNote() {
         setNewLink("");
     }
 
+    function handleRemoveLink(deleted) {
+        setLinks(previewState => previewState.filter(link => link !== deleted));
+    }
+
     return (
         <Container>
             <Header />
@@ -43,7 +47,7 @@ export function NewNote() {
                                 <NoteItem  
                                     key={String(index)}
                                     value={link}
-                                    onClick={() => { }}
+                                    onClick={() => handleRemoveLink(link)}
                                 />  
                             ))
                         }
