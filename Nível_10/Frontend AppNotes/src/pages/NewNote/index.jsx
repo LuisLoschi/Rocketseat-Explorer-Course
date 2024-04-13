@@ -8,7 +8,19 @@ import { NoteItem } from "../../components/NoteItem";
 
 import { Link } from "react-router-dom";
 
+import { useState } from "react";
+
 export function NewNote() {
+    const [links, setLinks] = useState([]);      //Guarda os links
+    const [newLink, setNewLink] = useState("");  //Armazena novo link
+
+    function handleAddLink() {
+        /*
+        * Manter links anteriores a adicionar os novos
+        */
+        setLinks(previewState => [...previewState, newLink]);
+        setNewLink("");
+    }
 
     return (
         <Container>
@@ -26,8 +38,23 @@ export function NewNote() {
                     <TextArea placeholder="Obsevações" />
 
                     <Section title="Links úteis">
-                        <NoteItem  value="https//github.com/LuisLoschi"/>
-                        <NoteItem  isnew placeholder="Novo link" />
+                        {
+                            links.map((link, index) => (
+                                <NoteItem  
+                                    key={String(index)}
+                                    value={link}
+                                    onClick={() => { }}
+                                />  
+                            ))
+                        }
+
+                        <NoteItem  
+                            isnew
+                            placeholder="Novo link"
+                            value={newLink}
+                            onChange={e => setNewLink(e.target.value)}
+                            onClick={handleAddLink}
+                        />
                     </Section>
 
 
