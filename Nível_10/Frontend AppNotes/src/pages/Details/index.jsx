@@ -5,43 +5,101 @@ import { Section } from "../../components/Section";
 import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
 
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+
+
 
 export function Details() {
+
+    const [data, setData] = useState(null);
+
+    const params = useParams();
+    const navigate = useNavigate();
+
+    function homePage() {
+        return navigate("/")
+    }
+
+    useEffect(() => {
+        async function fetchNote() {
+            const response = await api.get(`/notes/${params.id}`);
+
+            setData(response.data);
+        }   
+
+        fetchNote()
+    }, []);
 
     return (
         <Container>
             <Header />
 
-            <main>
-                <Content>
+            {
+                data && 
 
-                    <ButtonText title="Excluir nota" />
+                <main>
+                    <Content>
 
-                    <h1>
-                        Introdução ao React
-                    </h1>
+                        <ButtonText title="Excluir nota" />
 
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi nisi inventore laborum nam et laudantium ab eum mollitia repudiandae, 
-                        praesentium, magni consectetur libero temporibus eos eligendi in minima a omnis!
-                    </p>
+                        <h1>
+                            {data.title}
+                        </h1>
 
-                    <Section title="Links úteis">
-                        <Links>
-                            <li><a href="https://github.com/LuisLoschi" target="_blank">https://github.com/LuisLoschi</a></li>
-                            <li><a href="#">https://github.com/LuisLoschi</a></li>
-                        </Links>
-                    </Section>
+                        <p>
+                            {data.description}
+                        </p>
 
-                    <Section title="Marcadores">
-                        <Tag title="express"/>
-                        <Tag title="node js"/>
-                    </Section>
+                        {
+                            data.links &&
+                            <Section title="Links úteis">
+                                <Links>
 
-                    <Button title="Voltar"/>
+                                    {
+                                        data.links.map(link => (
+                                            <li key={String(link.id)}>
+                                                <a 
+                                                    href={link.url} 
+                                                    target="_blank"
+                                                >
+                                                    {link.url}
+                                                </a>
+                                            </li>
 
-                </Content>
-            </main>
+                                        ))
+                                    }
+                                </Links>
+                            </Section>
+                        }
+
+                        {
+                            data.tags &&
+                            <Section title="Marcadores">
+                                {   
+                                    data.tags.map(tag => (
+                                        <Tag 
+                                            key={String(tag.id)}
+                                            title={tag.name}
+                                        />
+
+                                    ))
+
+                                }
+                            </Section>
+
+                        }
+
+                        <Button 
+                            title="Voltar"
+                            onClick={() => homePage()}
+                        />
+
+                    </Content>
+                </main>
+            }
+
         </Container>
     )
 }
