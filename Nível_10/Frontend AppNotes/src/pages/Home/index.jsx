@@ -10,6 +10,7 @@ import { Section } from "../../components/Section";
 
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
 
@@ -17,6 +18,8 @@ export function Home() {
     const [tagSelected, setTagSelected] = useState([]);
     const [search, setSearch] = useState([]);
     const [notes, setNotes] = useState([]);
+
+    const navigate = useNavigate();
 
 
     function handleTagSelected(tagName) {
@@ -35,6 +38,10 @@ export function Home() {
             setTagSelected(previewState => [...previewState, tagName]);
         }
 
+    }
+
+    function handleOpenNotes(id) {
+        navigate(`/Details/${id}`)
     }
 
     useEffect(() => {
@@ -103,6 +110,7 @@ export function Home() {
                             <Note
                                 key={String(note.id)} 
                                 data={note}
+                                onClick={() => handleOpenNotes(note.id)}
                             />
                         ))
                     }
