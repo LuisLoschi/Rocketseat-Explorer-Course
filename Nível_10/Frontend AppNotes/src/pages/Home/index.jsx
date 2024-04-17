@@ -8,8 +8,23 @@ import { Note } from "../../components/Note"
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Section } from "../../components/Section";
 
+import { useState, useEffect } from "react";
+import { api } from "../../services/api";
+
 
 export function Home() {
+
+    const [tags, setTags] = useState([]);
+
+    useEffect(() => {
+        async function fetchTags() {
+            const response = await api.get("/tags")
+
+            setTags(response.data);
+        }
+
+        fetchTags();
+    }, []);
 
     return (
         <Container>
@@ -20,9 +35,21 @@ export function Home() {
             <Header />
 
             <Menu>
-                <li><ButtonText title="Todos" isactive /></li>
-                <li><ButtonText title="React" /></li>
-                <li><ButtonText title="NodeJs" /></li>
+                <li>
+                    <ButtonText 
+                        title="Todos" 
+                        isactive 
+                    />
+                </li>
+                {
+                    tags && tags.map(tag => (
+                        <li key={String(tag.id)}>
+                            <ButtonText 
+                                title={tag.name}  
+                            />
+                        </li>
+                    ))
+                }
             </Menu>
 
             <Search>
