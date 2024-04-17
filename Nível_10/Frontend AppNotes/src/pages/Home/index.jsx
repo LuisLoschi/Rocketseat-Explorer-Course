@@ -11,10 +11,24 @@ import { Section } from "../../components/Section";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 
-
 export function Home() {
 
     const [tags, setTags] = useState([]);
+    const [tagSelected, setTagSelected] = useState([]);
+
+    function handleTagSelected(tagName) {
+        const alredySelected = tagSelected.includes(tagName)
+
+        if (alredySelected) {
+            const filteredTag = tagSelected.filter(tag => tag !== tagName);
+
+            setTagSelected(filteredTag);
+            
+        } else {
+            setTagSelected(previewState => [...previewState, tagName]);
+        }
+
+    }
 
     useEffect(() => {
         async function fetchTags() {
@@ -26,6 +40,7 @@ export function Home() {
         fetchTags();
     }, []);
 
+    
     return (
         <Container>
             <Brand>
@@ -38,14 +53,17 @@ export function Home() {
                 <li>
                     <ButtonText 
                         title="Todos" 
-                        isactive 
+                        onClick={() => handleTagSelected(tag.name)} 
+                        isactive={tagSelected.length === 0}
                     />
                 </li>
                 {
                     tags && tags.map(tag => (
                         <li key={String(tag.id)}>
                             <ButtonText 
-                                title={tag.name}  
+                                title={tag.name} 
+                                onClick={() => handleTagSelected(tag.name)} 
+                                isactive={tagSelected.includes(tag.name)}
                             />
                         </li>
                     ))
