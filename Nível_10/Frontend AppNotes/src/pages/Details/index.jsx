@@ -5,6 +5,8 @@ import { Section } from "../../components/Section";
 import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
 
+import { MdDeleteForever } from "react-icons/md";
+
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
@@ -20,6 +22,15 @@ export function Details() {
 
     function homePage() {
         return navigate("/")
+    }
+
+    async function handleRemoveNote() {
+        const confirm = window.confirm("Deseja realmente remover essa nota?");
+
+        if (confirm) {
+           await  api.delete(`/notes/${params.id}`);
+           homePage();
+        }
     }
 
     useEffect(() => {
@@ -42,8 +53,11 @@ export function Details() {
                 <main>
                     <Content>
 
-                        <ButtonText title="Excluir nota" />
-
+                        <ButtonText 
+                            title="Excluir nota" 
+                            onClick={handleRemoveNote}
+                        />
+                        
                         <h1>
                             {data.title}
                         </h1>
