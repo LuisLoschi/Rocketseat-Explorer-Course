@@ -1,9 +1,11 @@
-import { RiShutDownLine } from "react-icons/ri";
+import { IoLogOut } from "react-icons/io5";
 import { Container, Profile, Logout } from './styles'
 
 import { useAuth } from "../../hook/auth";
 
 import { api } from "../../services/api";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header(){
     const { signOut, user } = useAuth();
@@ -26,7 +28,7 @@ export function Header(){
             </Profile>
 
             <Logout onClick={signOut}>
-                <RiShutDownLine />
+                <IoLogOut />
             </Logout>
 
         </Container>
