@@ -21,7 +21,7 @@ export function Details() {
     const navigate = useNavigate();
 
     function homePage() {
-        return navigate("/")
+        return navigate(-1) //Home page
     }
 
     async function handleRemoveNote() {
