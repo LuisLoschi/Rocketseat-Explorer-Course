@@ -12,9 +12,9 @@
 
 <div align="center">
     <p>Login</p>
-    <img src="../Nível_10/Frontend AppNotes/src/assets/tela principal.png" width=600>
+    <img src="../Nivel_10/Frontend/src/assets/tela principal.png" width=600>
     <p>App</p>
-    <img src="../Nível_10/Frontend AppNotes/src/assets/App.png" width=600>
+    <img src="../Nivel_10/Frontend/src/assets/App.png" width=600>
 </div>
 
 <br>
