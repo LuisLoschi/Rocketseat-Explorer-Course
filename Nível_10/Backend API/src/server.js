@@ -1,4 +1,5 @@
 require("express-async-errors"); //Biblioteca de tratamento de erros
+require("dotenv/config");
 
 const AppError = require("./utils/AppError");
 const migrationsRun = require("./database/sqlite/migrations") //importa a db
@@ -36,5 +37,5 @@ app.use((error, request, response, next) => {
     });
 });
 
-const PORT = 3333; //Endereço de requisição
+const PORT = process.env.PORT || 3333 ; //Endereço de requisição
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`));
