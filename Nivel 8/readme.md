@@ -11,16 +11,27 @@
 ## 🔖 Application
 
 <div align="center">
-    <p>Database</p>
-    <img src="./img/base.png" width=600>
     <p>API</p>
-    <img src="./img/Api.png" width=600>
+    <img src="../Nivel 8/NodeJs API/img/Api.png" width=600>
 </div>
 
 <br>
 
 ## 💻 Project
 In this project, an API was created using nodeJS and Express to manage the AppNotes backend at Level 10.
+
+## 📝 Running project
+To run this project you need to download <a href="https://nodejs.org/en">NodeJs</a>.
+
+1.  Download the project zip and access <strong>Nivel 8</strong> folder or clone this reposiroty:
+```
+git clone https://github.com/LuisLoschi/FullStack-Rocketseat-Explorer-course.git
+```
+
+2.  Run the project on port 3333:
+```
+npm start
+```
 
 ### 💡 Features:
 - Middleware and exceptions
