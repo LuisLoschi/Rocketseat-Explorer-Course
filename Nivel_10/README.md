@@ -11,6 +11,10 @@
 ## 🔖 Application
 
 <div align="center">
+    <h3>
+        <a target="_blank" href="https://mynotes-luis-projects-14342dd4.vercel.app/">Visite o site clicando aqui</a>
+    </h3>
+    <br>
     <p>Login</p>
     <img src="../Nivel_10/Frontend/src/assets/tela principal.png" width=600>
     <p>App</p>
